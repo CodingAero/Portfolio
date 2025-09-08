@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mike Smith</title>
+    <link rel="icon" type="image/" href="https://mikesmith.space/image/m.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jura">
+    <link rel="stylesheet" href="https://mikesmith.space/style/style.css">
+    <link rel="stylesheet" href="https://mikesmith.space/style/table.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo"><img src="https://mikesmith.space/image/cartoon.svg" width="68" height="102"></div>
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="https://mikesmith.space/">Home</a></li>
+                <li><a href="https://mikesmith.space/projects.html">Projects</a></li>
+                <li><a href="https://mikesmith.space/about_me.html">About Me</a></li>
+                <li><a href="https://mikesmith.space/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <hr margin-top: 0;>
+
+    <section id="path" class="trail">
+        <div class="trail-path">
+            <p><a href="https://mikesmith.space/projects.html">Projects</a></p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <p>
+                I keep the projects here.
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <h3>Favorites</h3>
+            <p>
+                <a href="https://mikesmith.space/projects/winston">Winston: Virtual Assistant</a>
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <h3>All Projects</h3>
+            <div class="filter-controls">
+                <label for="language-filter">Filter by Language:</label>
+                <select id="language-filter">
+                    <option value="all">All</option>
+                </select>
+            </div>
+            <table class="projects-table">
+                <thead>
+                    <tr>
+                        <th id="sort-name" class="sortable">Project Name <span class="sort-indicator"></span></th>
+                        <th>Language</th>
+                        <th id="sort-date" class="sortable">Date <span class="sort-indicator"></span></th>
+                    </tr>
+                </thead>
+                <tbody id="projects-table-body">
+                    </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section><br><br></section>
+
+    <hr>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="https://mikesmith.space/">Home</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Mike Smith. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/file-highlight/prism-file-highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script src="https://mikesmith.space/script/project_table.js"></script>
+</body>
+
+</html>
