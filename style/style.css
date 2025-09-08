@@ -1,0 +1,238 @@
+:root {
+    --text-color:#242424;
+    --highlight-warm:Coral;
+    --highlight-cool:DeepSkyBlue;
+}
+body {
+    background-color: ghostwhite;
+    font-family: 'Jura', 'Helvetica', monospace;
+    text-align: center;
+}
+.logo {
+    padding: 0;
+    margin: 0 0 -4px 0;
+}
+hr {
+    color: black;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+h1 {
+    font-size: 22px;
+    color: black;
+    padding: 10px 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+p {
+    font-size: 16px;
+    color: black;
+    padding: 10px 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+nav {
+    color: black;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Hamburger Menu Styling */
+.hamburger-menu {
+    display: none; /* Hide on desktop */
+    cursor: pointer;
+    padding: 10px;
+}
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+.nav-container {
+    font-weight: 1000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    font-size: 18px;
+    /* Add a transition for the slide-out effect */
+    transition: transform 0.3s ease-in-out;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--highlight-warm);
+    position: relative;
+    font-weight: 1000;
+}
+.nav-links a:hover {
+    color: var(--highlight-warm);
+}
+/* Section */
+.section {
+    padding: 10px 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+/* Trail */
+.trail {
+    padding: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+.trail-path {
+    font-size: 8px;
+    max-width: 1000px;
+}
+/* Footer */
+.footer {
+    font-size: 18px;
+    padding: 10px 0;
+    max-width: 800px;
+    align-items: center;
+    margin-top: auto;
+    text-align: center;
+}
+.footer-container {
+    padding: 10px 0;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+/* Link Style */
+a {
+    text-decoration: none;
+    background-color: transparent;
+}
+a:link {
+    color: var(--highlight-warm);
+}
+a:visited {
+    color: var(--text-color);
+}
+a:hover {
+    font-style: italic;
+    color: var(--highlight-warm);
+}
+.container a:link,
+.container a:visited {
+    color: var(--highlight-warm);
+}
+/* List Style */
+ol {
+    font-size: 16px;
+    color: black;
+    padding: 10px 0;
+    max-width: 400px;
+    margin: 0 auto;
+    list-style-type: square;
+    list-style-position: inside;
+}
+ul {
+    font-size: 16px;
+    color: black;
+    padding: 10px 0;
+    max-width: 400px;
+    margin: 0 0;
+    list-style-type: square;
+    list-style-position: inside;
+}
+/* Override the copy button appearance */
+.copy-to-clipboard-button {
+    background: ghostwhite !important;
+    color: black !important;
+    border: 1px solid black !important;
+    border-radius: 8px !important;
+    padding: 4px 8px !important;
+    font-size: 16px !important;
+}
+.copy-to-clipboard-button:hover {
+    font-style: italic !important;
+}
+/* Your border-radius overrides here */
+pre[class="language-"] {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+}
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    body {
+        padding: 0 10px;
+    }
+    h1 {
+        font-size: 18px;
+    }
+    p, .footer, .trail-path, ul, ol {
+        font-size: 14px;
+    }
+    nav {
+        z-index: 1000; /* Add a higher z-index to the nav element */
+    }
+    .nav-container {
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+    }
+    .hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+    }
+    .projects-table th .sort-indicator {
+        z-index: 1; /* Lower than navigation menu */
+    }
+    .projects-table {
+        z-index: 1;
+    }
+    .nav-links {
+        position: fixed; /* Position the menu off-screen */
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 70%; /* Adjust the width of the slide-out menu */
+        flex-direction: column;
+        background-color: ghostwhite;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+        transform: translateX(-100%); /* Hide the menu off-screen to the left */
+        padding-top: 60px;
+        z-index: 1002;
+    }
+    .nav-links.active {
+        transform: translateX(0); /* Slide the menu into view */
+    }
+    .nav-links li {
+        text-align: left;
+        padding: 15px 20px;
+    }
+    .nav-links a {
+        color: var(--text-color);
+        font-size: 1.2em;
+    }
+    .logo {
+        margin: 0 0 -8px 0;
+    }
+    .trail {
+        text-align: left;
+    }
+    .copy-to-clipboard-button {
+        font-size: 14px !important;
+    }
+    table thead {
+        position: static; /* Remove sticky positioning on mobile */
+        z-index: auto;
+    }
+}
