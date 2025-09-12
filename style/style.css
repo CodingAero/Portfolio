@@ -2,6 +2,7 @@
     --text-color:#242424;
     --highlight-warm:Coral;
     --highlight-cool:DeepSkyBlue;
+    --highlight-neutral: #8dad86;
 }
 body {
     background-color: ghostwhite;
@@ -72,7 +73,7 @@ nav {
 }
 .nav-links a {
     text-decoration: none;
-    color: var(--highlight-warm);
+    color: var(--text-color);
     position: relative;
     font-weight: 1000;
 }
@@ -128,12 +129,12 @@ a:visited {
 }
 a:hover {
     font-style: italic;
-    color: var(--highlight-warm);
+    /* color: var(--highlight-warm); */
 }
-.container a:link,
+/* .container a:link,
 .container a:visited {
     color: var(--highlight-warm);
-}
+} */
 /* List Style */
 ol {
     font-size: 16px;
