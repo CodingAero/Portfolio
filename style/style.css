@@ -78,7 +78,8 @@ nav {
     font-weight: 1000;
 }
 .nav-links a:hover {
-    color: var(--highlight-warm);
+    /* color: var(--highlight-warm); */
+    color: var(--text-color);
 }
 /* Section */
 .section {
@@ -122,7 +123,8 @@ a {
     background-color: transparent;
 }
 a:link {
-    color: var(--highlight-warm);
+    /* color: var(--highlight-warm); */
+    color: var(--text-color);
 }
 a:visited {
     color: var(--text-color);

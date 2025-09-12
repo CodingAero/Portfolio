@@ -16,7 +16,7 @@
 .filter-controls select {
     padding: 5px;
     border-radius: 5px;
-    border: 1px solid var(--text-controls);
+    border: 1px solid var(--text-color);
 }
 
 .projects-table {
