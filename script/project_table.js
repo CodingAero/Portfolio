@@ -9,7 +9,7 @@ hamburger.addEventListener("click", () => {
 const projects = [
     {
         name: "Winston: Virtual Assistant",
-        url: "https://mikesmith.space/projects/winston",
+        url: "https://mikesmith.space/projects/winston.html",
         language: "Python",
         date: "2024-03-15"
     },
