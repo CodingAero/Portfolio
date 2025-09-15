@@ -32,6 +32,9 @@ p {
     max-width: 800px;
     margin: 0 auto;
 }
+p a {
+  text-decoration: underline dotted;
+}
 nav {
     color: black;
     padding: 0;
