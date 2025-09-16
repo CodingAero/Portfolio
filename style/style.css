@@ -241,4 +241,7 @@ pre[class="language-"] {
         position: static; /* Remove sticky positioning on mobile */
         z-index: auto;
     }
+    p a {
+        text-decoration: underline dotted;
+    }
 }
