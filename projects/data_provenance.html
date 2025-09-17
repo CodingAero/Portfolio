@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mike Smith</title>
+    <link rel="icon" type="image/" href="https://mikesmith.space/image/m_background.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jura">
+    <link rel="stylesheet" href="https://mikesmith.space/style/style.css">
+    <!-- Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- Prism.js plugins -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+    <!-- Prism.js copy button -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo"><img src="https://mikesmith.space/image/cartoon.svg" width="68" height="102"></div>
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="https://mikesmith.space/">Home</a></li>
+                <li><a href="https://mikesmith.space/projects.html">Projects</a></li>
+                <li><a href="https://mikesmith.space/about_me.html">About Me</a></li>
+                <li><a href="https://mikesmith.space/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <hr margin-top: 0;>
+
+    <section id="path" class="trail">
+        <div class="trail-path">
+            <a href="https://mikesmith.space/projects.html">Projects</a> > 
+            <a href="https://mikesmith.space/projects/data_provenance.html">Data Provenance</a>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <h3>Description</h3>
+            <p>
+                JSON files are a common way to store and share data. I often find myself needing to write out just the values 
+                for various purposes. Perhaps this is to quickly spot trends, duplicates, or unexpected values. While I could write 
+                individual scripts for each of these tasks, I have found this common approach to printing values has been extremely useful. 
+                Printing just the values immediately leaves me with the question of "Where did this value come from?" For that reason, I 
+                have also chosen to print the keys leading up to a particular value. This approach provides some version of "data provenance" 
+                so I can quickly see not only the values but the context in which that value exists.
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <h3>Running the Program</h3>
+            <p>
+                This program is run using the following command structure:
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <pre class="line-numbers"><code class="language-shell">go run .\data_provenance.go</code></pre>
+        </div>
+    </section>
+
+    <section><br><br></section>
+
+    <hr>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="https://mikesmith.space/">Home</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Mike Smith. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auto Loader -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/file-highlight/prism-file-highlight.min.js"></script>
+    <!-- Prism.js JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger-menu");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    </script>
+
+</body>
+
+</html>
