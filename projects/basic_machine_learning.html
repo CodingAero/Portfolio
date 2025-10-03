@@ -88,8 +88,8 @@ y = my_data.column_x
 # Select features
 my_data_features = ['column_m', 'column_a', 'column_z', 'column_c', 'column_e']
 X = my_data[my_data_features]
-X.describe()
-X.head() # Inspect the data at this stage to spot oddities</code></pre>
+print(X.describe())
+print(X.head()) # Inspect the data at this stage to spot oddities</code></pre>
         </div>
     </section>
 
@@ -97,20 +97,40 @@ X.head() # Inspect the data at this stage to spot oddities</code></pre>
         <div class="container">
             <pre class="line-numbers"><code class="language-python"># Next use the scikit-learn library to create your model.
 # There are four stages to building and using a model: Define, Fit, Predict, and Evaluate.
-
+from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeRegressor
 
-# Define model.
-my_model = DecisionTreeRegressor(random_state=1)
+# Split data into training and validation subsets to avoid "In-Sample" scores
+# Random state guarantees a consistent split with each run
+train_X, val_X, train_y, val_y = train_test_split(X, y, random_state = 1)
 
-# Fit model
-my_model.fit(X, y)
+# Define the model
+my_model = DecisionTreeRegressor()
+
+# Fit the model
+my_model.fit(train_X, train_y)
 
 # Make predictions
 print("Making initial predictions:")
-print(X.head())
+print(val_X.head())
 print("The predictions are")
-print(my_model.predict(X.head()))</code></pre>
+print(my_model.predict(val_X.head()))
+
+# Compare predictions
+print("Check actual values")
+print(val_y.head())
+print("Compare those to the predictions")
+print(my_model.predict(val_X.head()))</code></pre>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <pre class="line-numbers"><code class="language-python"># Calculate the mean absolute error
+from sklearn.metrics import mean_absolute_error
+
+val_model_predictions = my_model.predict(val_X)
+print(mean_absolute_error(val_y, val_model_predictions))</code></pre>
         </div>
     </section>
 
