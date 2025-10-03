@@ -8,14 +8,13 @@
     <link rel="icon" type="image/" href="https://mikesmith.space/image/m_background.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jura">
     <!-- <link rel="stylesheet" href="https://mikesmith.space/style/style.css"> -->
-    <link rel="stylesheet" href="./style/style.css">
-    <!-- <link rel="stylesheet" href="https://mikesmith.space/style/table.css"> -->
-    <link rel="stylesheet" href="./style/table.css">
-    <!-- <link rel="stylesheet" href="https://mikesmith.space/style/cards.css"> -->
-    <link rel="stylesheet" href="./style/cards.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <!-- Prism.js CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- Prism.js plugins -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
         rel="stylesheet" />
+    <!-- Prism.js copy button -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
         rel="stylesheet" />
 </head>
@@ -42,75 +41,43 @@
 
     <section id="path" class="trail">
         <div class="trail-path">
-            <a href="https://mikesmith.space/projects.html">Projects</a>
+            <a href="https://mikesmith.space/projects.html">Projects</a> > 
+            <a href="https://mikesmith.space/projects/basic_machine_learning.html">Basic Machine Learning</a>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <h3>Description</h3>
+            <p>
+                This project explores some basic concept in machine learning.
+            </p>
         </div>
     </section>
 
     <!-- <section id="code" class="section">
         <div class="container">
+            <h3>Running the Program</h3>
             <p>
-                I keep the projects here.
+                This program is run using the following command structure:
             </p>
         </div>
     </section> -->
 
     <section id="code" class="section">
         <div class="container">
-            <h3>Project List</h3>
-            <!-- <p>
-                <a href="https://mikesmith.space/projects/winston.html">Winston: Virtual Assistant</a>
-            </p> -->
+            <pre class="line-numbers"><code class="language-python"># Load Data
+import pandas as pd
+
+# Path of the file to read
+data_file_path = '../input/train.csv'
+dataframe = pd.read_csv(data_file_path)
+
+# Print summary statistics in next line
+home_data.describe()
+            </code></pre>
         </div>
     </section>
-
-    <section id="code" class="section">
-        <div class="container">
-            <div class="projects-grid">
-                <a href="https://mikesmith.space/projects/winston.html" class="project-card">
-                    <h2 class="project-title">Winston: Virtual Assistant</h2>
-                    <p class="project-description">Python</p>
-                </a>
-    
-                <a href="https://mikesmith.space/projects/data_provenance.html" class="project-card">
-                    <h2 class="project-title">Data Provenance</h2>
-                    <p class="project-description">Golang</p>
-                </a>
-
-                <a href="https://mikesmith.space/projects/basic_machine_learning.html" class="project-card">
-                    <h2 class="project-title">Basic Machine Learning</h2>
-                    <p class="project-description">Python | ML | Pandas</p>
-                </a>
-    
-                <!-- <a href="https://google.com" class="project-card">
-                    <h2 class="project-title">TBD</h2>
-                    <p class="project-description">Golang</p>
-                </a> -->
-            </div>
-        </div>
-    </section>
-
-    <!-- <section id="code" class="section">
-        <div class="container">
-            <h3>All Projects</h3>
-            <div class="filter-controls">
-                <label for="language-filter">Filter by Language:</label>
-                <select id="language-filter">
-                    <option value="all">All</option>
-                </select>
-            </div>
-            <table class="projects-table">
-                <thead>
-                    <tr>
-                        <th id="sort-name" class="sortable">Project Name <span class="sort-indicator"></span></th>
-                        <th>Language</th>
-                        <th id="sort-date" class="sortable">Date <span class="sort-indicator"></span></th>
-                    </tr>
-                </thead>
-                <tbody id="projects-table-body">
-                    </tbody>
-            </table>
-        </div>
-    </section> -->
 
     <section><br><br></section>
 
@@ -127,10 +94,12 @@
         </div>
     </footer>
 
+    <!-- Auto Loader -->
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/file-highlight/prism-file-highlight.min.js"></script>
+    <!-- Prism.js JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
@@ -139,7 +108,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
-    <script src="https://mikesmith.space/script/project_table.js"></script>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger-menu");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    </script>
+
 </body>
 
 </html>
