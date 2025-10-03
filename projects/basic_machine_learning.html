@@ -71,10 +71,46 @@ import pandas as pd
 
 # Path of the file to read
 data_file_path = '../input/train.csv'
-dataframe = pd.read_csv(data_file_path)
+my_data = pd.read_csv(data_file_path)
 
 # Print summary statistics in next line
-dataframe.describe()</code></pre>
+my_data.describe()
+
+# List all columns in the dataset
+my_data.columns
+
+# dropna drops missing values (think of na as "not available")
+my_data = my_data.dropna(axis=0)
+
+# Select a prediction target
+y = my_data.column_x
+
+# Select features
+my_data_features = ['column_m', 'column_a', 'column_z', 'column_c', 'column_e']
+X = my_data[my_data_features]
+X.describe()
+X.head() # Inspect the data at this stage to spot oddities</code></pre>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <pre class="line-numbers"><code class="language-python"># Next use the scikit-learn library to create your model.
+# There are four stages to building and using a model: Define, Fit, Predict, and Evaluate.
+
+from sklearn.tree import DecisionTreeRegressor
+
+# Define model.
+my_model = DecisionTreeRegressor(random_state=1)
+
+# Fit model
+my_model.fit(X, y)
+
+# Make predictions
+print("Making initial predictions:")
+print(X.head())
+print("The predictions are")
+print(my_model.predict(X.head()))</code></pre>
         </div>
     </section>
 
