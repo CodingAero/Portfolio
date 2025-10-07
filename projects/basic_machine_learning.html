@@ -139,6 +139,41 @@ print(mean_absolute_error(val_y, val_model_predictions))</code></pre>
         </div>
     </section>
 
+    <section id="code" class="section">
+        <div class="container">
+            <h3>Description</h3>
+            <p>
+                The number of splits, or depth, of a decision tree is a key parameter that controls how complex the
+                model is allowed to be. The depth would never need to exceed x, where 2<sup>x</sup> equals number of
+                training data points. This will almost certainly lead to overfitting because each leaf could represent a
+                single training data point and the lowest Mean Absolute Error is likely to be a lower depth value.
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <pre class="line-numbers"><code class="language-python">from sklearn.metrics import mean_absolute_error
+from sklearn.tree import DecisionTreeRegressor
+
+def get_mae(max_leaf_nodes, train_X, val_X, train_y, val_y):
+    model = DecisionTreeRegressor(max_leaf_nodes=max_leaf_nodes, random_state=0)
+    model.fit(train_X, train_y)
+    preds_val = model.predict(val_X)
+    mae = mean_absolute_error(val_y, preds_val)
+    return(mae)
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <pre class="line-numbers"><code class="language-python"># A loop can help find a minimum Mean Absolute Error
+for max_leaf_nodes in [5, 50, 500, 5000]:
+    my_mae = get_mae(max_leaf_nodes, train_X, val_X, train_y, val_y)
+    print("Max leaf nodes: %d  \t\t Mean Absolute Error:  %d" %(max_leaf_nodes, my_mae))
+        </div>
+    </section>
+
     <section><br><br></section>
 
     <hr>
