@@ -78,6 +78,95 @@
         </div>
     </section>
 
+    <section id="code" class="section">
+        <div class="container">
+            <h3>File Structure</h3>
+            <p>
+                For this project, files are organized into a single folder in the following way:
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <pre class="line-numbers"><code class="language-shell">image_color_change/
+├── color_change.py
+├── input_image.png
+├── output_image.png (generated)</code></pre>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <h3>The Code</h3>
+            <p>
+                TBD
+            </p>
+            <p>
+                Below is the code for the core function of the color_change.py file.
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <pre class="line-numbers"><code class="language-python">def color_change(input_path, output_path, black_threshold=10, white_threshold=245):
+    """
+    Convert black pixels to white and white pixels to transparent.
+    
+    Parameters:
+    - input_path: Path to the input image
+    - output_path: Path to save the converted image (should be PNG)
+    - black_threshold: Pixel darkness threshold (0-255). Pixels with RGB values 
+                       below this are considered black. Default is 10.
+    - white_threshold: Pixel brightness threshold (0-255). Pixels with RGB values
+                       above this are considered white. Default is 245.
+    """
+    # Read the image with alpha channel (transparency)
+    img = cv2.imread(input_path, cv2.IMREAD_UNCHANGED)
+    
+    if img is None:
+        raise FileNotFoundError(f"Could not read image from {input_path}")
+    
+    # Check if image has alpha channel
+    has_alpha = img.shape[2] == 4 if len(img.shape) == 3 else False
+    
+    if not has_alpha:
+        # Add alpha channel if it doesn't exist
+        alpha = np.ones((img.shape[0], img.shape[1]), dtype=img.dtype) * 255
+        img = np.dstack((img, alpha))
+    
+    # Separate color channels and alpha channel
+    bgr = img[:, :, :3]
+    alpha = img[:, :, 3]
+    
+    # Create mask for black pixels that are NOT already transparent
+    # Only consider pixels where alpha > 0 (not fully transparent)
+    black_mask = np.all(bgr <= black_threshold, axis=2) & (alpha > 0)
+    
+    # Create mask for white pixels that are NOT already transparent
+    white_mask = np.all(bgr >= white_threshold, axis=2) & (alpha > 0)
+    
+    # Convert black pixels to white
+    bgr[black_mask] = [255, 255, 255]
+    
+    # Make white pixels transparent (set alpha to 0)
+    alpha[white_mask] = 0
+    
+    # Update the image
+    img[:, :, :3] = bgr
+    img[:, :, 3] = alpha
+    
+    print(f"Converted {np.sum(black_mask)} black pixels to white")
+    print(f"Made {np.sum(white_mask)} white pixels transparent")
+    print(f"Total transparent pixels: {np.sum(alpha == 0)}")
+    
+    # Save the result
+    cv2.imwrite(output_path, img)
+    print(f"Image saved to {output_path}")</code></pre>
+        </div>
+    </section>
+
     <section><br><br></section>
 
     <hr>
