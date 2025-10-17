@@ -89,6 +89,14 @@
 
     <section id="code" class="section">
         <div class="container">
+            <pre class="line-numbers"><code class="language-yml">on:
+  schedule:
+    - cron: '0 */8 * * *'</code></pre>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
             <h3>Checkout the Repository</h3>
             <p>
                 The first step uses the standard `actions/checkout@v2` action to prepare the runner environment. This essential
@@ -96,6 +104,15 @@
                 specifying `ref: main`, the workflow ensures it is working on the latest code from the `main` branch, allowing
                 it to read existing files and make new changes.
             </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <pre class="line-numbers"><code class="language-yml">    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        ref: main</code></pre>
         </div>
     </section>
 
@@ -110,6 +127,32 @@
                 a new commit with the message "Incremental test of Github Actions", and pushes the change back to the repository
                 using the secured `GITHUB_TOKEN` for authentication.
             </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <pre class="line-numbers"><code class="language-yml">    - name: Create file and update
+      run: |
+        FILE="test_actions.md"
+        if [ ! -f "$FILE" ]; then
+          echo "Below is a Rolling Count to test Github Actions:<br />" > "$FILE"
+          echo "Rolling Count: 1" >> "$FILE"
+        else
+          CURRENT_COUNT=$(grep -oP 'Rolling Count: \K\d+' "$FILE")
+          if [ -z "$CURRENT_COUNT" ]; then
+            CURRENT_COUNT=0
+          fi
+          NEXT_COUNT=$((CURRENT_COUNT + 1))
+          sed -i "/Rolling Count: /c\Rolling Count: $NEXT_COUNT" "$FILE"
+        fi
+        git config --global user.name "CodingAero"
+        git config --global user.email "smithaero12@gmail.com"
+        git add "$FILE"
+        git commit -m "Incremental test of Github Actions"
+        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/CodingAero/GithubActions.git
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}</code></pre>
         </div>
     </section>
 
