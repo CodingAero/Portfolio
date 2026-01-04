@@ -99,7 +99,7 @@
 
     <section id="code" class="section">
         <div class="container">
-            <h3>The Code</h3>
+            <h3>Configuration</h3>
             <p>
                 As the run command implies, the code runs from `personalAssistant.py`. After importing the 
                 necessary libraries we see this line:
@@ -109,7 +109,7 @@
 
     <section id="code" class="section">
         <div class="container">
-            <pre class="line-numbers"><code class="language-shell">config_path = g.configPath(True)</code></pre>
+            <pre class="line-numbers"><code class="language-python">config_path = g.configPath(True)</code></pre>
         </div>
     </section>
 
@@ -170,6 +170,41 @@
             </p>
             <p><b>lastStateId</b><br>This is a rolling count to ensure that the state in the fake travel plans 
                 is always changing. This is automatically updated each time the program runs.
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <p>
+                Got all that?! Whew... Great!
+            </p>
+            <p>
+                Continuing in `personalAssistant.py`, we see a with statement that then opens your configuration 
+                and grabs the corresponding values.
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <h3>Building the Message</h3>
+            <p>
+                The main content of the message is then built using a series of function calls that look like this:
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <pre class="line-numbers"><code class="language-python">msg = cm.somethingMessage(msg,verbose)</code></pre>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <p>
+                At this point it is probably better to delve into the content for individual functions in Github itself.
             </p>
         </div>
     </section>
