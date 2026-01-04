@@ -204,7 +204,77 @@
     <section id="code" class="section">
         <div class="container">
             <p>
-                At this point it is probably better to delve into the content for individual functions in Github itself.
+                At this point it is probably better to delve into the content for individual functions on Github 
+                itself but I will touch on a couple items. First I want to note that order does matter a bit. Somedays 
+                we are in more of a rush than others, obviously. If you duplicate this project for your own use and find 
+                yourself relying on birthday or credit card payment reminders, put that at the top. Also, if 
+                you add a lot more content, you'll like skim everything and get less value overall.
+            </p>
+            <p>
+                My message has a few pieces. I start with a weather forecast because I found myself checking that 
+                every morning anyway. Then I add a reminder to pay my credit card and take out the trash and recycling 
+                if that is coming up. Finally, I add upcoming birthdays and anniversaries. This is honestly where I usually
+                stop reading and briefly skim the remaining message. The rest of the content includes a word of the day 
+                from my own word list, a quote of the day, and a sign off which includes fake travel plans for my assistant.
+                I stated it earlier, but the point of the fake travel plans is to help me learn capitals of states and countries.
+                I'll also note, there are occasionally small inconsistencies between the high and low temperature in the header
+                of the email and the forecast in the body of the message. This is because I liked the forecast from one API but
+                another weather API made high and low temperature far easier to access. Ultimately, I decide the inconsistency 
+                was fine because it was more likely to continue providing information if one API went down and it provided a 
+                more complete understanding of the weather.
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <h3>Logs</h3>
+            <p>
+                At the end of the program I create a few logs. First you'll find a line something like:
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <pre class="line-numbers"><code class="language-python">sl.infoMessage("Final correspondence message\n{0}".format(msg),verbose)</code></pre>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <p>
+                The log likely accumulated messages as the program ran but now it is logging a final entry containing the email 
+                that was sent. There is another line similar to:
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <pre class="line-numbers"><code class="language-python">gh.update_and_push_logs("Personal Assistant program completed successfully.")</code></pre>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <p>
+                This creates an updated `run_log.txt` file with information on the last time the program ran and then pushes that 
+                and any other changes automatically to Github in this repo's main branch. On one hand, this feels a bit reckless 
+                because I could push partial changes I was making the day before. On the other hand, I can access information on 
+                the last run from anywhere now and my Github status board turns green for that day.
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <h3>Conclusion</h3>
+            <p>
+                There is a lot more here that I didn't touch on but I think this should give you a high level overview. Hopefully
+                you feel like you can confidently explore the code on your own from here. Better yet, if you do duplicate this repo
+                and build it out for your own use, please drop me a note on how it went and if you added any functionality you
+                found particularly useful!
             </p>
         </div>
     </section>
@@ -219,7 +289,7 @@
                 <a href="https://mikesmith.space/">Home</a>
             </div>
             <div class="copyright">
-                &copy; 2025 Mike Smith. All rights reserved.
+                &copy; 2026 Mike Smith. All rights reserved.
             </div>
         </div>
     </footer>
