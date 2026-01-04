@@ -57,7 +57,12 @@
             <p>
                 Winston is my virtual assistant. This project started as a fun way to ensure I 
                 never forgot an important date but has continued to evolve over the years into 
-                a clean way of providing daily updates as I wake up each morning.
+                a clean way of providing daily updates as I wake up each morning. I spend the 
+                most time working on this repo because I'll wake up thinking something like 
+                "I should add weather information" and then decie to clean up or rework other 
+                parts of the code while I'm working on the original update. On the surface this 
+                is a fairly unimpressive program but it has proven to be helpful and fun to 
+                maintain.
             </p>
             <p>
                 <a href="https://github.com/CodingAero/PersonalAssistant" target="_blank">Link to the GitHub Repository</a>
@@ -77,6 +82,119 @@
     <section id="code" class="section">
         <div class="container">
             <pre class="line-numbers"><code class="language-shell">python virt_asst.py</code></pre>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <p>
+                That said, I typically don't run this program manually. Instead, I have it set up to run 
+                each morning as a cronjob from my home desktop. This works pretty well but I think it is 
+                worth updating the desktop's settings to boot up automatically when power is available 
+                to prevent any power outages from blocking the email from sending while I am away for a 
+                few days.
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <h3>The Code</h3>
+            <p>
+                As the run command implies, the code runs from `personalAssistant.py`. After importing the 
+                necessary libraries we see this line:
+            </p>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <pre class="line-numbers"><code class="language-shell">config_path = g.configPath(True)</code></pre>
+        </div>
+    </section>
+
+    <section id="code" class="section">
+        <div class="container">
+            <p>
+                This function is in `func_general.py` and is determining from which computer the code is running. 
+                This is important for a few reasons. First, it allows for a local configuration path so you can store 
+                data you don't want to accidently end up on the public internet outside a github repo. Most of the 
+                time this would be handled using a `.gitignore` file but I like the idea of having additional 
+                separation from my data and a constantly evolving code base. Is this overkill for mostly birthday 
+                data? Absolutely, but these fun side projects are more about proven what I can do and not designing 
+                the most efficient codebase.
+            </p>
+            <p>
+                The second huge benefit that comes with a dynamic configuration path is that I can run this code
+                quickly from each of my computers, with various operating systems, without needing a bunch of 
+                input variables in my run command. The down side is that local data files can get out of sync if 
+                you don't have an automated way to sync them. This can be solved by referencing a single source of 
+                truth like a Google Drive file.
+            </p>
+            <p>
+                Once you have your configuration file, these are a handful of variables that direct how the program 
+                with execute. Here are a few examples:
+            </p>
+            <ul>
+                <li><b>platform</b>: This is mainly a reference to which computer configuration the program is using for 
+                    debugging purposes.
+                    {
+                    "platform": "Mac",
+                    "emailInTerminal": "True",
+                    "verbose": "False",
+                    "logFile": "log.txt",
+                    "emailPreview": "email_preview.html",
+                    "countriesFile": "./data/data_countries.json",
+                    "datesFile": "./data/data_dates.json",
+                    "quotesFile": "./data/data_quotes.json",
+                    "statesFile": "./data/data_states.json",
+                    "wordsFile": "./data/data_words.json",
+                    "greeting": "Good morning",
+                    "assistantName": "Winston",
+                    "from_email": "assistant@gmail.com",
+                    "to_email": "you@gmail.com",
+                    "subject": "default",
+                    "eventOutlook": "14",
+                    "lastDeparture": "country",
+                    "lastStateId": "0",
+                    "lastCountryId": "0",
+                    "lastWordId": "0",
+                    "lastQuoteId": "0"
+                }</li>
+                <li><b>emailInTerminal</b>: This is a boolean field that determines when to print the email in your 
+                    terminal or actually send an email. While you're making code updates, it can be faster to 
+                    skip the time associated with sending and receiving an email.
+                </li>
+                <li><b>emailPreview</b>: When I added html formatting I added this output file as well that shows 
+                    what was sent. This can be useful for development and debugging.
+                </li>
+                <li><b>countriesFile</b>: This is a list of every country and its capital and there is a similar
+                    file for states. I like keeping this information fresh in my mind. Ultimately this information 
+                    appears at the end of the email as fake travel plans the assistant is currently completing.
+                </li>
+                <li><b>datesFile</b>: This is data for birthdays and anniversaries.</li>
+                <li><b>greeting</b>: This is how the assistant greets you at the beginning or the email.</li>
+                <li><b>assistantName</b>: Yes, you can give your assistant any name you want!</li>
+                <li><b>from_email</b>: This is the sender email. Assuming you use your gmail account, you will 
+                    need to setup an `App Password` that corresponds to this email address.
+                </li>
+                <li><b>to_email</b>: This is the email recipient.</li>
+                <li><b>subject</b>: Using `default` will give you an email title of "Daily Correspondence" plus 
+                    a date stamp. Alternatively, you can set a custom subject line here.
+                </li>
+                <li><b>eventOutlook</b>: This is how many days out the program will look to remind you of upcoming
+                    dates.</li>
+                <li><b>lastDeparture</b>: The fake travel plans at the end of the email ensures that the previous 
+                    destination is the next days starting location, assuming the emails are sent consecutively 
+                    from the same computer. This helps reinforce the location and capital information as well as 
+                    play into the travel idea. This field will alternate between "country" and "state" and works with 
+                    the `lastStateId` or `lastCountryId` field to make the previously described functionality possible.
+                    This is automatically updated each time the program runs.
+                </li>
+                <li><b>lastStateId</b>: This is a rolling count to ensure that the state in the fake travel plans 
+                    is always changing. This is automatically updated each time the program runs.
+                </li>
+            </ul>
         </div>
     </section>
 
