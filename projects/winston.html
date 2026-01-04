@@ -135,40 +135,40 @@
                 Once you have your configuration file, these are a handful of variables that direct how the program 
                 with execute. Here are a few examples:
             </p>
-            <p><b>platform</b><br>This is mainly a reference to which computer configuration the program is using for 
+            <p><b>~ platform ~</b><br>This is mainly a reference to which computer configuration the program is using for 
                 debugging purposes.
             </p>
-            <p><b>emailInTerminal</b><br>This is a boolean field that determines when to print the email in your 
+            <p><b>~ emailInTerminal ~</b><br>This is a boolean field that determines when to print the email in your 
                 terminal or actually send an email. While you're making code updates, it can be faster to 
                 skip the time associated with sending and receiving an email.
             </p>
-            <p><b>emailPreview</b><br>When I added html formatting I added this output file as well that shows 
+            <p><b>~ emailPreview ~</b><br>When I added html formatting I added this output file as well that shows 
                 what was sent. This can be useful for development and debugging.
             </p>
-            <p><b>countriesFile</b><br>This is a list of every country and its capital and there is a similar
+            <p><b>~ countriesFile ~</b><br>This is a list of every country and its capital and there is a similar
                 file for states. I like keeping this information fresh in my mind. Ultimately this information 
                 appears at the end of the email as fake travel plans the assistant is currently completing.
             </p>
-            <p><b>datesFile</b><br>This is data for birthdays and anniversaries.</p>
-            <p><b>greeting</b><br>This is how the assistant greets you at the beginning or the email.</p>
-            <p><b>assistantName</b><br>Yes, you can give your assistant any name you want!</p>
-            <p><b>from_email</b><br>This is the sender email. Assuming you use your gmail account, you will 
+            <p><b>~ datesFile ~</b><br>This is data for birthdays and anniversaries.</p>
+            <p><b>~ greeting ~</b><br>This is how the assistant greets you at the beginning or the email.</p>
+            <p><b>~ assistantName ~</b><br>Yes, you can give your assistant any name you want!</p>
+            <p><b>~ from_email ~</b><br>This is the sender email. Assuming you use your gmail account, you will 
                 need to setup an `App Password` that corresponds to this email address.
             </p>
-            <p><b>to_email</b><br>This is the email recipient.</p>
-            <p><b>subject</b><br>Using `default` will give you an email title of "Daily Correspondence" plus 
+            <p><b>~ to_email ~</b><br>This is the email recipient.</p>
+            <p><b>~ subject ~</b><br>Using `default` will give you an email title of "Daily Correspondence" plus 
                 a date stamp. Alternatively, you can set a custom subject line here.
             </p>
-            <p><b>eventOutlook</b><br>This is how many days out the program will look to remind you of upcoming
+            <p><b>~ eventOutlook ~</b><br>This is how many days out the program will look to remind you of upcoming
                 dates.</p>
-            <p><b>lastDeparture</b><br>The fake travel plans at the end of the email ensures that the previous 
+            <p><b>~ lastDeparture ~</b><br>The fake travel plans at the end of the email ensures that the previous 
                 destination is the next days starting location, assuming the emails are sent consecutively 
                 from the same computer. This helps reinforce the location and capital information as well as 
                 play into the travel idea. This field will alternate between "country" and "state" and works with 
                 the `lastStateId` or `lastCountryId` field to make the previously described functionality possible.
                 This is automatically updated each time the program runs.
             </p>
-            <p><b>lastStateId</b><br>This is a rolling count to ensure that the state in the fake travel plans 
+            <p><b>~ lastStateId ~</b><br>This is a rolling count to ensure that the state in the fake travel plans 
                 is always changing. This is automatically updated each time the program runs.
             </p>
         </div>
@@ -230,7 +230,7 @@
         <div class="container">
             <h3>Logs</h3>
             <p>
-                At the end of the program I create a few logs. First you'll find a line something like:
+                At the end of the program I create a few logs. First you'll find a line like:
             </p>
         </div>
     </section>
